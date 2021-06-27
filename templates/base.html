@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+    margin: 0;
+    font-family: sans-serif;
+    color: black;
+    align-content: center;
+}
+        table, th, td {
+    border: 1px solid black;
+    font-size:20px;
+  }
+        form{
+            font-size:20px;
+        }
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
+        
+        li {
+          float: left;
+        }
+        
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover:not(.active) {
+          background-color: #111;
+        }
+        
+        .active {
+          background-color: #04AA6D;
+        }
+        
+        </style>
+    <link rel="stylesheet" type="text/css" href="../static/main.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for( 'static',filename='main.css' ) }}"/>
+    <title>{% block head %}{% endblock %}</title>
+    
+</head>
+<body>
+    <div class="topnav">
+        <ul>
+            <li><a class="active" href="/">Home</a></li>
+            <li><a href="addform">Add user</a></li>
+            <li><a href="course">Add course</a></li>
+            <li><a href="query?id=0">Query</a></li>
+          </ul>
+    </div>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>
+

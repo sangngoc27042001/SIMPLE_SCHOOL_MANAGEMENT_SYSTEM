@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+ADD USER
+{% endblock %}
+
+{% block body %}
+
+    
+    {% if (id==0) %}
+    <h1>Course to query</h1>
+<form action="/query?id=1" method="POST" style="width: 100%;">
+    <label for="course"><b>Course</b></label>
+    <select name="course" id="course">
+        {% for ele in course %}
+        <option value={{ele.c_name}}>{{ele.c_name}}</option>
+        {%endfor%}
+    </select><br/><br/>
+    
+    <button type="submit">QUERY</button>
+</form>
+    {%endif%}
+    {% if (id==1) %}
+    <h1>{{course}}</h1>
+    <div style="width:100%; display: flex; justify-content: center;">
+        <div style="width: 30%;">
+            <h2>Teacher</h2>
+            {% for tea in teacher %}
+            <p>{{tea.name}}</p>
+            {%endfor%}
+        </div>
+        <div style="width: 60%;">
+            <h2>Student</h2>
+            {% for stu in student %}
+            <p>{{stu.name}}</p>
+            {%endfor%}
+        </div>
+    </div>
+    {%endif%}
+
+
+{% endblock %}

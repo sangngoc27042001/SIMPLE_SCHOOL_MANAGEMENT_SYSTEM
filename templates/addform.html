@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block head %}
+ADD USER
+{% endblock %}
+
+{% block body %}
+<h1>Information to add</h1>
+
+<form action="/add" method="POST" style="width: 100%;">
+    <label for="uname"><b>Name</b></label>
+    <input type="text" id="name" name="name" style="width: 20%;"><br/><br/>
+
+    <label for="role"><b>Role</b></label>
+    <select name="role" id="role">
+        {% for c in role %}
+        <option value={{c}}>{{c}}</option>
+        {%endfor%}
+    </select><br/><br/>
+
+    <label for="course"><b>Course</b></label>
+    <select name="course" id="course">
+        {% for ele in course %}
+        <option value={{ele.c_name}}>{{ele.c_name}}</option>
+        {%endfor%}
+    </select><br/><br/>
+    
+    <button type="submit">ADD</button>
+    
+    <label for="role"><b>Role</b></label>
+    <select name="role" id="role">
+        {% for c in role %}
+        <option value={{c}}>{{c}}</option>
+        {%endfor%}
+    </select>
+</form>
+
+{% endblock %}

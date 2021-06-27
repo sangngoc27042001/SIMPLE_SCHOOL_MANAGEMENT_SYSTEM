@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block head %}
+SANG WEBPAGE
+{% endblock %}
+
+{% block body %}
+
+<h1>Danh Sach</h1>
+
+<br/>
+<table style="width:100%">
+    <tr>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Course</th>
+      <th>Action</th>
+    </tr>
+    {%for ele in data%}
+    <tr>
+      <td>
+          <div class="div_in_table">
+          {{ele.name}}
+          </div>
+        </td>
+        <td>
+          <div class="div_in_table">
+          {{ele.role}}
+          </div>
+        </td>
+        <td>
+          <div class="div_in_table">
+          {{ele.course}}
+          </div>
+        </td>
+      <td style="display: flex;">
+        <form action="/delete" method="POST" >
+            <input type="text" value="{{ele.id}}" name="id" hidden>
+          <button type="submit">
+              Delete
+            </button>
+        </form>
+        <form action="/update" method="GET" >
+          <input type="text" value="{{ele.id}}" name="id" hidden>
+        <button type="submit">
+            Update
+          </button>
+      </form>
+      </td>
+    </tr>
+    {%endfor%}
+  </table>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+SANG WEBPAGE
+{% endblock %}
+
+{% block body %}
+
+<h1>Upate User</h1>
+<h1>Information to update</h1>
+
+<form action="/update" method="POST" style="width: 100%;">
+    <label for="uname"><b>Name</b></label>
+    <input type="text" id="name" name="name" style="width: 20%;" value="{{user.name}}"><br/><br/>
+
+    <label for="role"><b>Role</b></label>
+    <select name="role" id="role">
+        <option value={{user.role}}>{{user.role}}</option>
+        {% for c in role %}
+        {% if (c != user.role) %}
+        <option value={{c}}>{{c}}</option>
+        {%endif%}
+        {%endfor%}
+    </select><br/><br/>
+
+    <label for="course"><b>Course</b></label>
+    <select name="course" id="course">
+        <option value={{user.course}}>{{user.course}}</option>
+        {% for ele in course %}
+        {% if  (user.course!=ele.c_name)%}
+        <option value={{ele.c_name}}>{{ele.c_name}}</option>
+        {%endif%}
+        {%endfor%}
+    </select><br/><br/>
+    <input type="text" value="{{user.id}}" name="id" hidden>
+    <button type="submit">UPDATE</button>
+    
+</form>
+
+
+
+{% endblock %}
